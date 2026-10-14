@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CraftDay — Гриф-выживание с приватом | c15.play2go.cloud:20141</title>
+
+<!-- 🎃 ХЭЛЛОУИНСКАЯ ИКОНКА (favicon) -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎃</text></svg>">
+
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -59,6 +63,59 @@ nav a:hover,nav a.active{background:rgba(255,120,0,.2);color:#ffaa00}
     text-align:center;padding:130px 20px 80px;position:relative;
 }
 .hero-content{max-width:980px}
+
+/* 🎃 БАННЕР В ШАПКЕ */
+.banner{
+    width:100%;
+    max-width:900px;
+    margin:0 auto 30px;
+    padding:20px;
+    border-radius:20px;
+    background:linear-gradient(135deg,rgba(255,120,0,.25),rgba(255,60,0,.15));
+    border:2px solid rgba(255,150,0,.5);
+    box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 60px rgba(255,120,0,.3);
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:20px;
+}
+.banner:before{
+    content:"";
+    position:absolute;inset:0;
+    background:radial-gradient(circle at 30% 50%,rgba(255,170,0,.25),transparent 60%),
+               radial-gradient(circle at 70% 50%,rgba(255,60,0,.2),transparent 60%);
+    pointer-events:none;
+}
+.banner-emoji{
+    font-size:80px;
+    filter:drop-shadow(0 0 25px rgba(255,150,0,.9));
+    animation:float 3s ease-in-out infinite;
+}
+@keyframes float{
+    0%,100%{transform:translateY(0) rotate(-5deg)}
+    50%{transform:translateY(-15px) rotate(5deg)}
+}
+.banner-text{
+    text-align:left;
+}
+.banner-text h2{
+    font-size:36px;
+    font-weight:1000;
+    letter-spacing:3px;
+    background:linear-gradient(135deg,#fff,#ffaa00,#ff6600);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    filter:drop-shadow(0 0 20px rgba(255,120,0,.6));
+    margin-bottom:6px;
+}
+.banner-text p{
+    color:#ffcc80;
+    font-size:15px;
+    font-weight:600;
+    letter-spacing:1px;
+}
+
 .badge{
     display:inline-block;padding:10px 18px;border:1px solid rgba(255,120,0,.6);
     border-radius:100px;background:rgba(255,120,0,.15);color:#ffaa00;
@@ -173,6 +230,79 @@ section{max-width:1200px;margin:auto;padding:110px 24px}
     -webkit-background-clip:text;background-clip:text;color:transparent;
 }
 .step span{color:#d0b090;line-height:1.6}
+
+/* ============ ОБНОВЛЕНИЯ ============ */
+.updates{max-width:900px;margin:auto;display:grid;gap:18px}
+.update{
+    position:relative;
+    padding:26px 28px;
+    background:linear-gradient(145deg,rgba(58,28,0,.8),rgba(38,18,0,.8));
+    border:1px solid rgba(255,120,0,.25);
+    border-radius:18px;
+    transition:.3s;
+    backdrop-filter:blur(10px);
+    overflow:hidden;
+}
+.update:before{
+    content:"";
+    position:absolute;
+    left:0;top:0;bottom:0;
+    width:4px;
+    background:linear-gradient(180deg,#ff6600,#ffaa00);
+    border-radius:18px 0 0 18px;
+}
+.update:hover{transform:translateX(6px);border-color:rgba(255,120,0,.5)}
+.update-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    margin-bottom:12px;
+    flex-wrap:wrap;
+}
+.update-version{
+    font-size:18px;
+    font-weight:900;
+    letter-spacing:1px;
+    background:linear-gradient(135deg,#fff,#ffaa00);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.update-date{
+    font-size:12px;
+    color:#9c8060;
+    font-weight:600;
+    padding:5px 12px;
+    background:rgba(255,120,0,.15);
+    border-radius:100px;
+    border:1px solid rgba(255,120,0,.3);
+}
+.update-title{
+    font-size:16px;
+    font-weight:800;
+    color:#ffcc80;
+    margin-bottom:10px;
+}
+.update-list{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+.update-list li{
+    color:#d0b090;
+    font-size:14px;
+    line-height:1.6;
+    padding-left:22px;
+    position:relative;
+    margin-bottom:5px;
+}
+.update-list li:before{
+    content:"🎃";
+    position:absolute;
+    left:0;
+    font-size:11px;
+    top:3px;
+}
+
 .discord{
     text-align:center;padding:65px 30px;border-radius:24px;
     background:linear-gradient(135deg,rgba(255,120,0,.25),rgba(255,60,0,.15));
@@ -199,6 +329,11 @@ footer{
     .hero{padding-top:120px}
     .server-box{padding:26px 18px}
     .ip{font-size:16px}
+    .banner{flex-direction:column;text-align:center}
+    .banner-text{text-align:center}
+    .banner-text h2{font-size:28px}
+    .banner-emoji{font-size:60px}
+    .update-header{flex-direction:column;align-items:flex-start}
 }
 </style>
 </head>
@@ -213,6 +348,7 @@ footer{
         <a href="#online">IP</a>
         <a href="#rules">Правила</a>
         <a href="#guide">Гайд</a>
+        <a href="#updates">Обновления</a>
         <a href="#discord">Discord</a>
     </nav>
 </div>
@@ -221,6 +357,17 @@ footer{
 <main>
 <section class="hero" id="home">
     <div class="hero-content reveal">
+
+        <!-- 🎃 ХЭЛЛОУИНСКИЙ БАННЕР -->
+        <div class="banner">
+            <div class="banner-emoji">🎃</div>
+            <div class="banner-text">
+                <h2>HALLOWEEN EVENT</h2>
+                <p>🕸 Осенний ивент • Специальные награды • Боссы и талисманы 🕸</p>
+            </div>
+            <div class="banner-emoji">👻</div>
+        </div>
+
         <div class="badge">🎃 ГРИФ-ВЫЖИВАНИЕ • ПРИВАТ • PVP ЗОНЫ 🎃</div>
         <h1>CRAFTDAY</h1>
         <p>Гриф-выживание с приватом и балансом. Строй базу под защитой региона, выходи за его пределы — и вступай в настоящую борьбу. Твоя территория защищена, но за её границей правит хаос.</p>
@@ -283,6 +430,73 @@ footer{
         <div class="step reveal"><b>04</b><span>Держи резервный сет брони и инструментов в отдельном сундуке. Пригодится после рейда.</span></div>
         <div class="step reveal"><b>05</b><span>Хочешь грифить сам? Ищи базы <b style="color:#ffaa00">вне привата</b> — там всё разрешено. Внутри региона — нельзя.</span></div>
         <div class="step reveal"><b>06</b><span>Помни: приват — не вечный. Если владелец давно не заходил, регион может быть снят. Строй с умом.</span></div>
+    </div>
+</section>
+
+<!-- ============ ОБНОВЛЕНИЯ ============ -->
+<section id="updates">
+    <div class="section-title reveal">
+        <h2>🎃 Обновления 🎃</h2>
+        <p>Что нового появилось на CraftDay.</p>
+    </div>
+    <div class="updates">
+
+        <div class="update reveal">
+            <div class="update-header">
+                <div class="update-version">v1.3 — Halloween Update</div>
+                <div class="update-date">14.10.2026</div>
+            </div>
+            <div class="update-title">🎃 Хэллоуинский ивент</div>
+            <ul class="update-list">
+                <li>Добавлен хэллоуинский стиль для TAB и меню</li>
+                <li>Новые анимации: тыквы, призраки, паутина</li>
+                <li>Праздничные кейсы и награды</li>
+                <li>Хэллоуинский баннер на спавне</li>
+            </ul>
+        </div>
+
+        <div class="update reveal">
+            <div class="update-header">
+                <div class="update-version">v1.2 — Bosses Update</div>
+                <div class="update-date">10.10.2026</div>
+            </div>
+            <div class="update-title">⚔ Новые боссы и предметы</div>
+            <ul class="update-list">
+                <li>Добавлены 5 боссов: Лорд Пепла, Король Бездны, Король Скелетов, Титан Булавы, Порыв Ветра</li>
+                <li>Уникальное оружие и броня с боссов</li>
+                <li>Новая система дропа с шансами</li>
+                <li>Случайный спавн боссов по мирам</li>
+            </ul>
+        </div>
+
+        <div class="update reveal">
+            <div class="update-header">
+                <div class="update-version">v1.1 — Talismans Update</div>
+                <div class="update-date">05.10.2026</div>
+            </div>
+            <div class="update-title">🔮 Талисманы и NPC «Кузнец»</div>
+            <ul class="update-list">
+                <li>Добавлены 7 талисманов с пассивными бонусами</li>
+                <li>Новый NPC «Кузнец» на спавне</li>
+                <li>Крафт талисманов у Кузнеца</li>
+                <li>Талисманы работают в левой руке</li>
+            </ul>
+        </div>
+
+        <div class="update reveal">
+            <div class="update-header">
+                <div class="update-version">v1.0 — Start Update</div>
+                <div class="update-date">01.10.2026</div>
+            </div>
+            <div class="update-title">🎁 Запуск сервера</div>
+            <ul class="update-list">
+                <li>Открытие гриф-выживания с приватом</li>
+                <li>15 квестов по цепочке</li>
+                <li>Стартовый и донат-кейсы</li>
+                <li>Команда /free — бесплатный ключ</li>
+            </ul>
+        </div>
+
     </div>
 </section>
 
